@@ -1,0 +1,5 @@
+AT+CWMODE=2                             # Set as AP mode
+AT+CWSAP="CITRUSI","12345678",1,3  # Create AP named ESP32_Config
+AT+CIFSR                                # Get IP address
+AT+CIPMUX=1                             # Enable multiple connections
+AT+CIPSERVER=1,80                       # Start server on port 80

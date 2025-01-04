@@ -1,0 +1,10 @@
+debuganje preko PC-ja
+povezi:
+19 -> RX
+22 -> TX
+
+
+Access point:
+AT+CWMODE=2
+
+AT+CWSAP="ESP32_AP","password",1,3

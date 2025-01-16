@@ -631,21 +631,21 @@ int main(void)
   {
 	  if(newDataFlag)
 	         {
-		  	  	  	 HAL_GPIO_WritePin(GPIOE, LD9_Pin, GPIO_PIN_SET);
-		  	  	  	// Null terminate the received data
-		             uartRxBuffer[uartRxIndex] = 0;
+		   HAL_GPIO_WritePin(GPIOE, LD9_Pin, GPIO_PIN_SET);
+		  	
+		    uartRxBuffer[uartRxIndex] = 0;
 
-		             SendDebug("Dobil buffer:");
-		             SendDebug((char*)uartRxBuffer);
+		    SendDebug("Dobil buffer:");
+		    SendDebug((char*)uartRxBuffer);
 
-		             //procesiram buffer
-		             ProcessUART();
+		      //procesiram buffer
+		     ProcessUART();
 
-		             //resetiram buffer in zastavico
-		             uartRxIndex = 0;
-		             newDataFlag = 0;
-		             memset(uartRxBuffer, 0, UART_RX_BUFFER_SIZE);
-		             HAL_GPIO_WritePin(GPIOE, LD9_Pin, GPIO_PIN_RESET);
+		       //resetiram buffer in zastavico
+		      uartRxIndex = 0;
+		      newDataFlag = 0;
+	              memset(uartRxBuffer, 0, UART_RX_BUFFER_SIZE);
+		      HAL_GPIO_WritePin(GPIOE, LD9_Pin, GPIO_PIN_RESET);
 	         }
 
 		static uint32_t lastBlink = 0;
@@ -654,7 +654,7 @@ int main(void)
 		static int measurementIndex = 0;
 
 	    if(connectedToWifi && (HAL_GetTick() - lastGyroSend >= 500)) {
-	        lastGyroSend = HAL_GetTick();  // Update last send time
+	        lastGyroSend = HAL_GetTick(); 
 
 	        HAL_GPIO_TogglePin(GPIOE, LD6_Pin);
 
